@@ -1,5 +1,9 @@
 const table = document.querySelector(".table");
 let libraryBooks = [];
+const newBookBtn = document.querySelector("#newBook");
+const form = document.querySelector("#form");
+
+newBookBtn.addEventListener("click",()=> form.classList.toggle("hide"));
 
 addBook("Harry Potter", "J K Rowling", 340, true);
 addBook("Lord of the rings", "J R Tolken", 900, false);
@@ -98,3 +102,4 @@ function updateTable() {
         }
     }
 }
+

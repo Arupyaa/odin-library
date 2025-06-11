@@ -24,6 +24,10 @@ td:has(>.remove-button){
     text-align: center;
 }
 
+.hide{
+    display: none;
+}
+
 form{
     width: 30%;
 }
