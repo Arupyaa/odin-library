@@ -26,8 +26,18 @@ function removeChildren(parent) {
 }
 
 function removeBook(id) {
-    let index = libraryBooks.indexOf(id);
+    let index = libraryBooks.findIndex((book) => book.id == id);
     libraryBooks.splice(index, 1);
+}
+
+function toggleBook(row) {
+    let index = libraryBooks.findIndex((book) => book.id == row.dataset.id);
+    libraryBooks[index].isRead = !libraryBooks[index].isRead;
+    let dStatus = row.querySelector("#dStatus");
+    if (dStatus.textContent == "Read")
+        dStatus.textContent = "Not read";
+    else
+        dStatus.textContent = "Read";
 }
 
 function updateTable() {
@@ -45,6 +55,8 @@ function updateTable() {
             let dAuthor = document.createElement("td");
             let dPages = document.createElement("td");
             let dStatus = document.createElement("td");
+            dStatus.setAttribute("id", "dStatus");
+            let dCheck = document.createElement("td");
             let dBtn = document.createElement("td");
             dName.textContent = book.name;
             dAuthor.textContent = book.author;
@@ -55,9 +67,19 @@ function updateTable() {
             tr.appendChild(dPages);
             tr.appendChild(dStatus);
 
+            //add read checkbox to the row
+            let readCheck = document.createElement("input");
+            readCheck.setAttribute("type", "checkbox");
+            readCheck.addEventListener("change", function () { toggleBook(this.parentNode.parentNode); });
+            if(book.isRead)
+                readCheck.setAttribute("checked","");
+            dCheck.appendChild(readCheck);
+            tr.appendChild(dCheck);
+
+            //add remove button to the row
             let btn = document.createElement("button");
             btn.textContent = "X";
-            btn.addEventListener("click", function(){
+            btn.addEventListener("click", function () {
                 let parent = this.parentNode.parentNode;
                 if (parent) {
                     removeBook(parent.dataset.id);
