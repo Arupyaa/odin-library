@@ -57,6 +57,7 @@ function updateTable() {
             let dStatus = document.createElement("td");
             dStatus.setAttribute("id", "dStatus");
             let dCheck = document.createElement("td");
+            dCheck.classList.add("checkBoxData");
             let dBtn = document.createElement("td");
             dName.textContent = book.name;
             dAuthor.textContent = book.author;

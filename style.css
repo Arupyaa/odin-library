@@ -19,3 +19,7 @@ td:has(>.remove-button){
     border: none;
     box-shadow: 2px 2px 12px grey;
 }
+
+.checkBoxData{
+    text-align: center;
+}
