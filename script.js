@@ -2,15 +2,24 @@ const table = document.querySelector(".table");
 let libraryBooks = [];
 const newBookBtn = document.querySelector("#newBook");
 const form = document.querySelector("#form");
+const submitBtn = document.querySelector("#submitBtn");
+
+const titleField = document.querySelector("#titleField");
+const authorField = document.querySelector("#authorField");
+const pagesField = document.querySelector("#pagesField");
+const statusField = document.querySelector("#statusField");
 
 newBookBtn.addEventListener("click",()=> form.classList.toggle("hide"));
+submitBtn.addEventListener("click", function(e){
+    submitForm();
+    e.preventDefault()});
 
 addBook("Harry Potter", "J K Rowling", 340, true);
 addBook("Lord of the rings", "J R Tolken", 900, false);
 addBook("The hitchhiker's guide to the galaxy", "Douglas Adams", 400, true);
 updateTable();
 
-function book(name, author, pages, readStatus = false) {
+function Book(name, author, pages, readStatus = false) {
     this.name = name;
     this.author = author;
     this.pages = pages;
@@ -19,7 +28,7 @@ function book(name, author, pages, readStatus = false) {
 }
 
 function addBook(name, author, pages, readStatus = false) {
-    let nbook = new book(name, author, pages, readStatus);
+    let nbook = new Book(name, author, pages, readStatus);
     libraryBooks.push(nbook);
 }
 
@@ -103,3 +112,9 @@ function updateTable() {
     }
 }
 
+function submitForm(){
+    addBook(titleField.value,authorField.value,Number(pagesField.value),statusField.checked);
+    form.reset();
+    form.classList.toggle("hide")
+    updateTable();
+}
