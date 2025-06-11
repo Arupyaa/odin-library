@@ -23,3 +23,31 @@ td:has(>.remove-button){
 .checkBoxData{
     text-align: center;
 }
+
+form{
+    width: 30%;
+}
+
+form fieldset{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    & input[type="checkbox"]{
+        vertical-align: middle;
+    }
+
+    & button{
+        flex: none;
+        width: max(20%,6.25rem);
+        padding: 0.3rem;
+        font-weight: bold;
+    }
+}
+
+#newBook{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.3rem 1rem;
+    font-weight: bold;
+}

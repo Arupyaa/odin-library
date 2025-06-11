@@ -17,6 +17,29 @@
             <th>remove</th>
         </tr>
     </table>
+    <button id="newBook">new Book</button>
+    <form action="#">
+        <fieldset>
+            <legend>new book data</legend>
+            <div>
+                <label for="titleField">Title:</label>
+                <input type="text" name="title" id="titleField">
+            </div>
+            <div>
+                <label for="authorField">Author:</label>
+                <input type="text" name="author" id="authorField">
+            </div>
+            <div>
+                <label for="pagesField">Page Number:</label>
+                <input type="number" name="pages" id="pagesField">
+            </div>
+            <div>
+                <label for="statusField">Read status:</label>
+                <input type="checkbox" name="status" id="statusField">
+            </div>
+            <button type="submit">Add book</button>
+        </fieldset>
+    </form>
 
     <script src="script.js"></script>
 </body>
